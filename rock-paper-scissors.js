@@ -17,10 +17,24 @@ function getComputerChoice() {
     //Set num to result of getRandomInt with argument of 3
 
     num = getRandomInt(3);
-    return num;
 
     //Use if/else to set pick to either "Rock", "Paper", or "Scissors" based on int in num 
+
+    if (num === 0) {
+        pick = "Rock";        
+    }
+
+    else if (num === 1) {
+        pick = "Paper";
+    }
+
+    else {
+        pick = "Scissors";
+    }
+
+    return pick;
 }
+
 
 
 //set compPick to result of getComputerChoice
