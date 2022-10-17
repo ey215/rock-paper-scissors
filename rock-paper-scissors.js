@@ -1,6 +1,8 @@
-//Create variable type string named compPick with the intial value ""
 
-compPick = "";
+//Create function getRandomInt to return integer
+function getRandomInt(max) {
+    return Math.floor(Math.random() * max);
+}
 
 //Create function getComputerChoice that returns either "Rock", "Paper", or "Scissors"
 function getComputerChoice() {
@@ -30,10 +32,7 @@ function getComputerChoice() {
     return pick;
 }
 
-//Create function getRandomInt to return integer
-function getRandomInt(max) {
-    return Math.floor(Math.random() * max);
-}
 
-//set compPick to result of getComputerChoice
+
+
 console.log(getComputerChoice());
