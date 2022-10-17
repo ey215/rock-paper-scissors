@@ -37,10 +37,24 @@ function getComputerChoice() {
 function playRound(playerSelection, computerSelection) {
 
 
-//If statement to see if playerSelection and computerSelectin are equal
+    //If statement to see if playerSelection and computerSelectin are 
+    //equal and return a draw string
+
+    if (playerSelection === computerSelection) {
+        return "Both players selected " + playerSelection + ", play round again."; 
+    }
+    else {
+        return "Different";
+    }
+
+
 //If statement to return a string if player loses
+
 //If statement to return a string if player wins
 
 }
 
-console.log(getComputerChoice());
+const playerSelection = "rock";
+const computerSelection = getComputerChoice();
+
+console.log(playRound(playerSelection, computerSelection));
