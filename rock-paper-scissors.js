@@ -37,9 +37,12 @@ function getComputerChoice() {
 function playRound(playerSelection, computerSelection) {
 
 
+    //make playerSelection lower case
+    playerSelection = playerSelection.toLowerCase();
+    
     //If statement to see if playerSelection and computerSelectin are 
     //equal and return a draw string
-
+       
     if (playerSelection === computerSelection) {
         return "Both players selected " + playerSelection + ", play round again."; 
     }
@@ -54,7 +57,7 @@ function playRound(playerSelection, computerSelection) {
         }
     }
 
-    //Resulst is playerSelectin is paper and computerSelectin is different
+    //Resuts if playerSelectin is paper and computerSelectin is different
     
     else if (playerSelection === "paper") {
         if (computerSelection === "scissors") {
@@ -66,18 +69,24 @@ function playRound(playerSelection, computerSelection) {
         }
     }
 
+    //Results if playerSelction is scissors
     else {
-        return "Scissors";
+        if (computerSelection === "rock") {
+            return "You Lose! " + computerSelection + " beats " + playerSelection; 
+        }
+
+        else {
+            return "You Win! " + playerSelection + " beats " + computerSelection;
+        }
     }
 
 
-//If statement to return a string if player loses
-
-//If statement to return a string if player wins
 
 }
 
-const playerSelection = "paper";
+const playerSelection = "Scissors";
 const computerSelection = getComputerChoice();
 
+console.log(playerSelection);
+console.log(computerSelection);
 console.log(playRound(playerSelection, computerSelection));
