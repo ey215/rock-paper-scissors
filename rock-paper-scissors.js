@@ -56,8 +56,18 @@ function playRound(playerSelection, computerSelection) {
 
     //Resulst is playerSelectin is paper and computerSelectin is different
     
-    else if (playerSelection === "paper" {
-        
+    else if (playerSelection === "paper") {
+        if (computerSelection === "scissors") {
+            return "You Lose! " + computerSelection + " beats " + playerSelection; 
+        }
+
+        else {
+            return "You Win! " + playerSelection + " beats " + computerSelection;
+        }
+    }
+
+    else {
+        return "Scissors";
     }
 
 
@@ -67,7 +77,7 @@ function playRound(playerSelection, computerSelection) {
 
 }
 
-const playerSelection = "rock";
+const playerSelection = "paper";
 const computerSelection = getComputerChoice();
 
 console.log(playRound(playerSelection, computerSelection));
