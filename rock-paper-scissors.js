@@ -43,8 +43,21 @@ function playRound(playerSelection, computerSelection) {
     if (playerSelection === computerSelection) {
         return "Both players selected " + playerSelection + ", play round again."; 
     }
-    else {
-        return "Different";
+    
+    //Results if playerSelection is rock and computerSelection is different
+    else if (playerSelection === "rock") {
+        if (computerSelection === "paper") {
+            return "You Lose! " + computerSelection + " beats " + playerSelection; 
+        }
+        else {
+            return "You Win! " + playerSelection + " beats " + computerSelection;
+        }
+    }
+
+    //Resulst is playerSelectin is paper and computerSelectin is different
+    
+    else if (playerSelection === "paper" {
+        
     }
 
 
