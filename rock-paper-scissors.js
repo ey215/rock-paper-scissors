@@ -21,15 +21,15 @@ function getComputerChoice() {
     //Use if/else to set pick to either "Rock", "Paper", or "Scissors" based on int in num 
 
     if (num === 0) {
-        pick = "Rock";        
+        pick = "rock";        
     }
 
     else if (num === 1) {
-        pick = "Paper";
+        pick = "paper";
     }
 
     else {
-        pick = "Scissors";
+        pick = "scissors";
     }
 
     return pick;
