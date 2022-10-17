@@ -8,12 +8,7 @@ function getComputerChoice() {
     let num = 0;
     //Create variable pick type string and intitial value of ""
     let pick = "";
-
-    //Create function getRandomInt to return integer
-    function getRandomInt(max) {
-        return Math.floor(Math.random() * max);
-    }
-
+    
     //Set num to result of getRandomInt with argument of 3
 
     num = getRandomInt(3);
@@ -35,7 +30,10 @@ function getComputerChoice() {
     return pick;
 }
 
-
+//Create function getRandomInt to return integer
+function getRandomInt(max) {
+    return Math.floor(Math.random() * max);
+}
 
 //set compPick to result of getComputerChoice
 console.log(getComputerChoice());
