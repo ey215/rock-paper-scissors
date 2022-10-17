@@ -32,7 +32,15 @@ function getComputerChoice() {
     return pick;
 }
 
+//Add a function playRound that compares playerSelection to computerSelection and decides winner
+
+function playRound(playerSelection, computerSelection) {
 
 
+//If statement to see if playerSelection and computerSelectin are equal
+//If statement to return a string if player loses
+//If statement to return a string if player wins
+
+}
 
 console.log(getComputerChoice());
