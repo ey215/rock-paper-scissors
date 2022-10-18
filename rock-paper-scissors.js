@@ -108,8 +108,7 @@ function game() {
     //Call playRound() to play a round
     //Use if/else statement to determine which counting variable to increment by 1 and increment roundsPlayed by 1
     //Print "Round n" + win/loss statement to console
-    //When round = 5 set keepGoing to false
-    //Pring playerWins, compWins and winner of game
+    //When round <= 6 set keepGoing to false
     //Reset variables to initial values
     
 
@@ -117,7 +116,6 @@ function game() {
  
 
 const playerSelection = "Scissors";
-let computerSelection = "";
 
 //console.log(playerSelection);
 //console.log(computerSelection);
@@ -132,6 +130,16 @@ let compWins = 0;
 //Create counting variable named roundsPlayed to track number of rounds with inital value of 0
 let roundsPlayed = 0;
 
-console.log(game());
-console.log(playerWins);
-console.log(compWins);
+game();
+
+//Print playerWins, compWins and winner of game
+
+if (playerWins === compWins) {
+    console.log("You Tie! You both won " + playerWins + " games!");
+}
+else if (playerWins > compWins) {
+    console.log("You Win! You won " + playerWins + " rounds and the Computer won " + compWins + " rounds.");
+}
+else {
+    console.log("You Lose! You won " + playerWins + " rounds and the Computer won " + compWins + " rounds.");
+}
