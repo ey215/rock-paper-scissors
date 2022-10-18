@@ -102,7 +102,7 @@ function game() {
             keepGoing = false;
         }
         else {
-            console.log("Round " + roundsPlayed + ": " + playRound(playerSelection, computerSelection));
+            console.log("Round " + roundsPlayed + ": " + playRound(playerSelection, getComputerChoice()));
         }
     }
     //Call playRound() to play a round
@@ -117,7 +117,7 @@ function game() {
  
 
 const playerSelection = "Scissors";
-const computerSelection = getComputerChoice();
+let computerSelection = "";
 
 //console.log(playerSelection);
 //console.log(computerSelection);
@@ -132,5 +132,6 @@ let compWins = 0;
 //Create counting variable named roundsPlayed to track number of rounds with inital value of 0
 let roundsPlayed = 0;
 
-
 console.log(game());
+console.log(playerWins);
+console.log(compWins);
