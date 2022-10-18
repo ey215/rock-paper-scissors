@@ -102,7 +102,7 @@ function game() {
             keepGoing = false;
         }
         else {
-            playerSelection = prompt("Rock, Paper, or Scissors?");
+            playerSelection = prompt(" Round " + roundsPlayed + ": Rock, Paper, or Scissors?");
             console.log("Round " + roundsPlayed + ": " + playRound(playerSelection, getComputerChoice()));
         }
     }
