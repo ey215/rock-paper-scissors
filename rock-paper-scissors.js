@@ -82,7 +82,7 @@ function playRound(playerSelection, computerSelection) {
 }
 
 //Create function game() which plays the game for 5 rounds and returns the result of each round and the winner
-function game{
+function game() {
     
     //Create counting variable named playerWins type integer for player wins with intial value of 0
     let playerWins = 0;
@@ -98,7 +98,15 @@ function game{
 
     //Create While loop with controling variable keepGoing.  When keepGoing = false loop terminates.
 
-    
+    while (keepGoing === True) {
+        roundsPlayed = roundsPlayed + 1;
+        if (roundsPlayed >= 6) {
+            keepGoing = False;
+        }
+        else {
+            "Round: " + console.log(roundsPlayed);
+        }
+    }
     //Call playRound() to play a round
     //Use if/else statement to determine which counting variable to increment by 1 and increment roundsPlayed by 1
     //Print "Round n" + win/loss statement to console
