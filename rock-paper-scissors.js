@@ -85,12 +85,20 @@ function playRound(playerSelection, computerSelection) {
 function game{
     
     //Create counting variable named playerWins type integer for player wins with intial value of 0
+    let playerWins = 0;
+    
     //Create countign variable named compWins type integer for computer wins with inital value of 0
+    let compWins = 0;
+    
     //Create counting variable named roundsPlayed to track number of rounds with inital value of 0
+    let roundsPlayed = 0;
+
     //Create variable type boolean keepGoing to crontrol loop with intital value of true
     let keepGoing = True;
 
     //Create While loop with controling variable keepGoing.  When keepGoing = false loop terminates.
+
+    
     //Call playRound() to play a round
     //Use if/else statement to determine which counting variable to increment by 1 and increment roundsPlayed by 1
     //Print "Round n" + win/loss statement to console
