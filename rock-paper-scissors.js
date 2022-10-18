@@ -44,15 +44,17 @@ function playRound(playerSelection, computerSelection) {
     //equal and return a draw string
        
     if (playerSelection === computerSelection) {
-        return "Both players selected " + playerSelection + ", play round again."; 
+        return "Both players selected " + playerSelection + ", no winner this round."; 
     }
     
     //Results if playerSelection is rock and computerSelection is different
     else if (playerSelection === "rock") {
         if (computerSelection === "paper") {
-            return "You Lose! " + computerSelection + " beats " + playerSelection; 
+            compWins = compWins + 1; 
+            return "You Lose! " + computerSelection + " beats " + playerSelection;
         }
         else {
+            playerWins = playerWins + 1;
             return "You Win! " + playerSelection + " beats " + computerSelection;
         }
     }
@@ -61,10 +63,13 @@ function playRound(playerSelection, computerSelection) {
     
     else if (playerSelection === "paper") {
         if (computerSelection === "scissors") {
-            return "You Lose! " + computerSelection + " beats " + playerSelection; 
+            compWins = compWins + 1;
+            return "You Lose! " + computerSelection + " beats " + playerSelection;
+
         }
 
         else {
+            playerWins = playerWins + 1;
             return "You Win! " + playerSelection + " beats " + computerSelection;
         }
     }
@@ -72,10 +77,12 @@ function playRound(playerSelection, computerSelection) {
     //Results if playerSelction is scissors
     else {
         if (computerSelection === "rock") {
+            compWins = compWins + 1;
             return "You Lose! " + computerSelection + " beats " + playerSelection; 
         }
 
         else {
+            playerWins = playerWins + 1;
             return "You Win! " + playerSelection + " beats " + computerSelection;
         }
     }
@@ -84,15 +91,6 @@ function playRound(playerSelection, computerSelection) {
 //Create function game() which plays the game for 5 rounds and returns the result of each round and the winner
 function game() {
     
-    //Create counting variable named playerWins type integer for player wins with intial value of 0
-    let playerWins = 0;
-    
-    //Create countign variable named compWins type integer for computer wins with inital value of 0
-    let compWins = 0;
-    
-    //Create counting variable named roundsPlayed to track number of rounds with inital value of 0
-    let roundsPlayed = 0;
-
     //Create variable type boolean keepGoing to crontrol loop with intital value of true
     let keepGoing = true;
 
@@ -104,7 +102,7 @@ function game() {
             keepGoing = false;
         }
         else {
-            console.log("Round: " + roundsPlayed);
+            console.log("Round " + roundsPlayed + ": " + playRound(playerSelection, computerSelection));
         }
     }
     //Call playRound() to play a round
@@ -118,11 +116,21 @@ function game() {
 }
  
 
-//const playerSelection = "Scissors";
-//const computerSelection = getComputerChoice();
+const playerSelection = "Scissors";
+const computerSelection = getComputerChoice();
 
 //console.log(playerSelection);
 //console.log(computerSelection);
 //console.log(playRound(playerSelection, computerSelection));
+
+//Create counting variable named playerWins type integer for player wins with intial value of 0
+let playerWins = 0;
+    
+//Create countign variable named compWins type integer for computer wins with inital value of 0
+let compWins = 0;
+    
+//Create counting variable named roundsPlayed to track number of rounds with inital value of 0
+let roundsPlayed = 0;
+
 
 console.log(game());
