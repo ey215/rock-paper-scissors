@@ -94,17 +94,17 @@ function game() {
     let roundsPlayed = 0;
 
     //Create variable type boolean keepGoing to crontrol loop with intital value of true
-    let keepGoing = True;
+    let keepGoing = true;
 
     //Create While loop with controling variable keepGoing.  When keepGoing = false loop terminates.
 
-    while (keepGoing === True) {
+    while (keepGoing === true) {
         roundsPlayed = roundsPlayed + 1;
         if (roundsPlayed >= 6) {
-            keepGoing = False;
+            keepGoing = false;
         }
         else {
-            "Round: " + console.log(roundsPlayed);
+            console.log("Round: " + roundsPlayed);
         }
     }
     //Call playRound() to play a round
@@ -118,9 +118,11 @@ function game() {
 }
  
 
-const playerSelection = "Scissors";
-const computerSelection = getComputerChoice();
+//const playerSelection = "Scissors";
+//const computerSelection = getComputerChoice();
 
-console.log(playerSelection);
-console.log(computerSelection);
-console.log(playRound(playerSelection, computerSelection));
+//console.log(playerSelection);
+//console.log(computerSelection);
+//console.log(playRound(playerSelection, computerSelection));
+
+console.log(game());
