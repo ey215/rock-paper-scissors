@@ -79,8 +79,17 @@ function playRound(playerSelection, computerSelection) {
             return "You Win! " + playerSelection + " beats " + computerSelection;
         }
     }
+}
 
+//Create function game() which plays the game for 5 rounds and returns the result of each round and the winner
+function game{
+    
+    //Create variable type boolean keepGoing to crontrol loop with intital value of true
+    let keepGoing = True;
 
+    //Create variable type integer named round to track number of rounds with intial value of 0
+
+    //Create While loo
 
 }
 
