@@ -96,16 +96,16 @@ function game() {
 
     //Create While loop with controling variable keepGoing.  When keepGoing = false loop terminates.
 
-    while (keepGoing === true) {
-        roundsPlayed = roundsPlayed + 1;
-        if (roundsPlayed >= 6) {
-            keepGoing = false;
-        }
-        else {
-            playerSelection = playerPrompt();
-            console.log("Round " + roundsPlayed + ": " + playRound(playerSelection, getComputerChoice()));
-        }
-    }
+    // while (keepGoing === true) {
+    //     roundsPlayed = roundsPlayed + 1;
+    //     if (roundsPlayed >= 6) {
+    //         keepGoing = false;
+    //     }
+    //     else {
+    //         playerSelection = playerPrompt();
+    //         console.log("Round " + roundsPlayed + ": " + playRound(playerSelection, getComputerChoice()));
+    //     }
+    // }
     //Call playRound() to play a round
     //Use if/else statement to determine which counting variable to increment by 1 and increment roundsPlayed by 1
     //Print "Round n" + win/loss statement to console
