@@ -122,6 +122,7 @@ function playerPrompt() {
     return playerEntry;
     
 }
+
  
 //Prompt user for input selection or Rock, Paper, or Scissors
 let playerSelection = "";
@@ -142,12 +143,18 @@ let roundsPlayed = 0;
 
 game();
 
+const results = document.querySelector('#results');
+const content = document.createElement('div');
+
+
+
 const buttons = document.querySelectorAll('button');
 
 buttons.forEach((button) => {
 
     button.addEventListener('click', () => {
-        console.log(playRound(button.id, getComputerChoice()));
+        content.textContent = playRound(button.id, getComputerChoice());
+        results.appendChild(content);
     });
 });
 
