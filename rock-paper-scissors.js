@@ -143,10 +143,12 @@ let roundsPlayed = 0;
 
 game();
 
+showResults();
+
+function showResults() {
 const results = document.querySelector('#results');
 const content = document.createElement('div');
-
-
+const playerScore = document.createElement('div');
 
 const buttons = document.querySelectorAll('button');
 
@@ -155,8 +157,12 @@ buttons.forEach((button) => {
     button.addEventListener('click', () => {
         content.textContent = playRound(button.id, getComputerChoice());
         results.appendChild(content);
+        
+        playerScore.textContent = playerWins;
+        results.appendChild(playerScore);
     });
 });
+}
 
 //Print playerWins, compWins and winner of game
 
