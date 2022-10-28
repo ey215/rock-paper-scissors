@@ -124,7 +124,7 @@ function playerPrompt() {
 }
  
 //Prompt user for input selection or Rock, Paper, or Scissors
-let playerSelction = "";
+let playerSelection = "";
 //playerSelection = prompt();
 
 //console.log(playerSelection);
@@ -141,6 +141,15 @@ let compWins = 0;
 let roundsPlayed = 0;
 
 game();
+
+const buttons = document.querySelectorAll('button');
+
+buttons.forEach((button) => {
+
+    button.addEventListener('click', () => {
+        alert(button.id);
+    });
+});
 
 //Print playerWins, compWins and winner of game
 
