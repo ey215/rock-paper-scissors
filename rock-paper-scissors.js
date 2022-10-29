@@ -30,48 +30,66 @@ function getComputerChoice() {
 //Add a function playRound that compares playerSelection to computerSelection and decides winner
 
 function playRound(playerSelection, computerSelection) {
-  //make playerSelection lower case
-  playerSelection = playerSelection.toLowerCase();
-
   //If statement to see if playerSelection and computerSelectin are
   //equal and return a draw string
-
-  if (playerSelection === computerSelection) {
-    return (
-      "Both players selected " + playerSelection + ", no winner this round."
-    );
-  }
-
-  //Results if playerSelection is rock and computerSelection is different
-  else if (playerSelection === "rock") {
-    if (computerSelection === "paper") {
-      compWins = compWins + 1;
-      return "You Lose! " + computerSelection + " beats " + playerSelection;
-    } else {
-      playerWins = playerWins + 1;
-      return "You Win! " + playerSelection + " beats " + computerSelection;
+  if (roundsPlayed <= 4) {
+    if (playerSelection === computerSelection) {
+      return (
+        "Both players selected " + playerSelection + ", no winner this round."
+      );
     }
-  }
 
-  //Resuts if playerSelectin is paper and computerSelectin is different
-  else if (playerSelection === "paper") {
-    if (computerSelection === "scissors") {
-      compWins = compWins + 1;
-      return "You Lose! " + computerSelection + " beats " + playerSelection;
-    } else {
-      playerWins = playerWins + 1;
-      return "You Win! " + playerSelection + " beats " + computerSelection;
+    //Results if playerSelection is rock and computerSelection is different
+    else if (playerSelection === "rock") {
+      if (computerSelection === "paper") {
+        compWins = compWins + 1;
+        return "You Lose! " + computerSelection + " beats " + playerSelection;
+      } else {
+        playerWins = playerWins + 1;
+        return "You Win! " + playerSelection + " beats " + computerSelection;
+      }
     }
-  }
 
-  //Results if playerSelction is scissors
-  else {
-    if (computerSelection === "rock") {
-      compWins = compWins + 1;
-      return "You Lose! " + computerSelection + " beats " + playerSelection;
+    //Resuts if playerSelectin is paper and computerSelectin is different
+    else if (playerSelection === "paper") {
+      if (computerSelection === "scissors") {
+        compWins = compWins + 1;
+        return "You Lose! " + computerSelection + " beats " + playerSelection;
+      } else {
+        playerWins = playerWins + 1;
+        return "You Win! " + playerSelection + " beats " + computerSelection;
+      }
+    }
+
+    //Results if playerSelction is scissors
+    else {
+      if (computerSelection === "rock") {
+        compWins = compWins + 1;
+        return "You Lose! " + computerSelection + " beats " + playerSelection;
+      } else {
+        playerWins = playerWins + 1;
+        return "You Win! " + playerSelection + " beats " + computerSelection;
+      }
+    }
+  } else {
+    if (playerWins === compWins) {
+      console.log("You Tie! You both won " + playerWins + " games!");
+    } else if (playerWins > compWins) {
+      console.log(
+        "You Win! You won " +
+          playerWins +
+          " rounds and the Computer won " +
+          compWins +
+          " rounds."
+      );
     } else {
-      playerWins = playerWins + 1;
-      return "You Win! " + playerSelection + " beats " + computerSelection;
+      console.log(
+        "You Lose! You won " +
+          playerWins +
+          " rounds and the Computer won " +
+          compWins +
+          " rounds."
+      );
     }
   }
 }
@@ -90,11 +108,13 @@ function showResults() {
   const content = document.createElement("div");
   const playerScore = document.createElement("div");
   const computerScore = document.createElement("div");
+  const rndPlay = document.createElement("div");
 
   const buttons = document.querySelectorAll("button");
 
   buttons.forEach((button) => {
     button.addEventListener("click", () => {
+      roundsPlayed++;
       content.textContent = playRound(button.id, getComputerChoice());
       results.appendChild(content);
 
@@ -103,6 +123,9 @@ function showResults() {
 
       computerScore.textContent = compWins;
       results.appendChild(computerScore);
+
+      rndPlay.textContent = roundsPlayed;
+      results.appendChild(rndPlay);
     });
   });
 }
@@ -126,23 +149,3 @@ let roundsPlayed = 0;
 showResults();
 
 //Print playerWins, compWins and winner of game
-
-if (playerWins === compWins) {
-  console.log("You Tie! You both won " + playerWins + " games!");
-} else if (playerWins > compWins) {
-  console.log(
-    "You Win! You won " +
-      playerWins +
-      " rounds and the Computer won " +
-      compWins +
-      " rounds."
-  );
-} else {
-  console.log(
-    "You Lose! You won " +
-      playerWins +
-      " rounds and the Computer won " +
-      compWins +
-      " rounds."
-  );
-}
