@@ -106,25 +106,26 @@ function showResults() {
 }
 
 function declareWinner() {
+  const totalResult = document.createElement("div");
+
   if (playerWins === compWins) {
-    console.log("You Tie! You both won " + playerWins + " games!");
+    totalResult.textContent = "You Tie! You both won " + playerWins + " games!";
   } else if (playerWins > compWins) {
-    console.log(
+    totalResult.textContent =
       "You Win! You won " +
-        playerWins +
-        " rounds and the Computer won " +
-        compWins +
-        " rounds."
-    );
+      playerWins +
+      " rounds and the Computer won " +
+      compWins +
+      " rounds.";
   } else {
-    console.log(
+    totalResult.textContent =
       "You Lose! You won " +
-        playerWins +
-        " rounds and the Computer won " +
-        compWins +
-        " rounds."
-    );
+      playerWins +
+      " rounds and the Computer won " +
+      compWins +
+      " rounds.";
   }
+  results.appendChild(totalResult);
 }
 
 function resetCounters() {
