@@ -72,35 +72,9 @@ function playRound(playerSelection, computerSelection) {
       }
     }
   } else {
-    if (playerWins === compWins) {
-      console.log("You Tie! You both won " + playerWins + " games!");
-    } else if (playerWins > compWins) {
-      console.log(
-        "You Win! You won " +
-          playerWins +
-          " rounds and the Computer won " +
-          compWins +
-          " rounds."
-      );
-    } else {
-      console.log(
-        "You Lose! You won " +
-          playerWins +
-          " rounds and the Computer won " +
-          compWins +
-          " rounds."
-      );
-    }
+    declareWinner();
+    resetCounters();
   }
-}
-
-//Function to prompt for player entry
-function playerPrompt() {
-  let playerEntry = "";
-  playerEntry = prompt(
-    " Round " + roundsPlayed + ": Rock, Paper, or Scissors?"
-  );
-  return playerEntry;
 }
 
 function showResults() {
@@ -109,6 +83,7 @@ function showResults() {
   const playerScore = document.createElement("div");
   const computerScore = document.createElement("div");
   const rndPlay = document.createElement("div");
+  const totalResult = document.createElement("div");
 
   const buttons = document.querySelectorAll("button");
 
@@ -128,6 +103,34 @@ function showResults() {
       results.appendChild(rndPlay);
     });
   });
+}
+
+function declareWinner() {
+  if (playerWins === compWins) {
+    console.log("You Tie! You both won " + playerWins + " games!");
+  } else if (playerWins > compWins) {
+    console.log(
+      "You Win! You won " +
+        playerWins +
+        " rounds and the Computer won " +
+        compWins +
+        " rounds."
+    );
+  } else {
+    console.log(
+      "You Lose! You won " +
+        playerWins +
+        " rounds and the Computer won " +
+        compWins +
+        " rounds."
+    );
+  }
+}
+
+function resetCounters() {
+  compWins = 0;
+  playerWins = 0;
+  roundsPlayed = 0;
 }
 
 let playerSelection = "";
