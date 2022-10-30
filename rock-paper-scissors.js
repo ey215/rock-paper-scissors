@@ -73,7 +73,6 @@ function playRound(playerSelection, computerSelection) {
     }
   } else {
     declareWinner();
-    resetCounters();
   }
 }
 
@@ -83,24 +82,28 @@ function showResults() {
   const playerScore = document.createElement("div");
   const computerScore = document.createElement("div");
   const rndPlay = document.createElement("div");
-  const totalResult = document.createElement("div");
 
   const buttons = document.querySelectorAll("button");
 
   buttons.forEach((button) => {
     button.addEventListener("click", () => {
       roundsPlayed++;
-      content.textContent = playRound(button.id, getComputerChoice());
-      results.appendChild(content);
 
-      playerScore.textContent = playerWins;
-      results.appendChild(playerScore);
+      if (roundsPlayed < 6) {
+        content.textContent = playRound(button.id, getComputerChoice());
+        results.appendChild(content);
 
-      computerScore.textContent = compWins;
-      results.appendChild(computerScore);
+        playerScore.textContent = "Your round wins: " + playerWins;
+        results.appendChild(playerScore);
 
-      rndPlay.textContent = roundsPlayed;
-      results.appendChild(rndPlay);
+        computerScore.textContent = "Computer round wins: " + compWins;
+        results.appendChild(computerScore);
+
+        rndPlay.textContent = "Rounds played: " + roundsPlayed;
+        results.appendChild(rndPlay);
+      } else {
+        resetCounters();
+      }
     });
   });
 }
