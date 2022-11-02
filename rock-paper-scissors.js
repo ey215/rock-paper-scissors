@@ -86,21 +86,25 @@ function showResults() {
   const buttons = document.querySelectorAll("button");
 
   buttons.forEach((button) => {
-    button.addEventListener("click", () => {
-      roundsPlayed++;
+    button.addEventListener(
+      "click",
+      () => {
+        roundsPlayed++;
 
-      content.textContent = playRound(button.id, getComputerChoice());
-      results.appendChild(content);
+        content.textContent = playRound(button.id, getComputerChoice());
+        results.appendChild(content);
 
-      playerScore.textContent = "Your round wins: " + playerWins;
-      results.appendChild(playerScore);
+        playerScore.textContent = "Your round wins: " + playerWins;
+        results.appendChild(playerScore);
 
-      computerScore.textContent = "Computer round wins: " + compWins;
-      results.appendChild(computerScore);
+        computerScore.textContent = "Computer round wins: " + compWins;
+        results.appendChild(computerScore);
 
-      rndPlay.textContent = "Rounds played: " + roundsPlayed;
-      results.appendChild(rndPlay);
-    });
+        rndPlay.textContent = "Rounds played: " + roundsPlayed;
+        results.appendChild(rndPlay);
+      },
+      { once: true }
+    );
   });
 }
 
@@ -147,10 +151,6 @@ let compWins = 0;
 //Create counting variable named roundsPlayed to track number of rounds with inital value of 0
 let roundsPlayed = 0;
 
-if (playerWins != 5 && compWins != 5) {
-  showResults();
-} else {
-  declareWinner();
-}
+showResults();
 
 //Print playerWins, compWins and winner of game
