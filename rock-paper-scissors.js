@@ -33,20 +33,24 @@ function playRound(playerSelection, computerSelection) {
   //If statement to see if playerSelection and computerSelectin are
   //equal and return a draw string
   //if (playerWins != 5 && compWins != 5) {
+
+  let roundOutput = "";
+
   if (playerSelection === computerSelection) {
-    return (
-      "Both players selected " + playerSelection + ", no winner this round."
-    );
+    roundOutput =
+      "Both players selected " + playerSelection + ", no winner this round.";
   }
 
   //Results if playerSelection is rock and computerSelection is different
   else if (playerSelection === "rock") {
     if (computerSelection === "paper") {
       compWins = compWins + 1;
-      return "You Lose! " + computerSelection + " beats " + playerSelection;
+      roundOutput =
+        "You Lose! " + computerSelection + " beats " + playerSelection;
     } else {
       playerWins = playerWins + 1;
-      return "You Win! " + playerSelection + " beats " + computerSelection;
+      roundOutput =
+        "You Win! " + playerSelection + " beats " + computerSelection;
     }
   }
 
@@ -54,10 +58,12 @@ function playRound(playerSelection, computerSelection) {
   else if (playerSelection === "paper") {
     if (computerSelection === "scissors") {
       compWins = compWins + 1;
-      return "You Lose! " + computerSelection + " beats " + playerSelection;
+      roundOutput =
+        "You Lose! " + computerSelection + " beats " + playerSelection;
     } else {
       playerWins = playerWins + 1;
-      return "You Win! " + playerSelection + " beats " + computerSelection;
+      roundOutput =
+        "You Win! " + playerSelection + " beats " + computerSelection;
     }
   }
 
@@ -65,48 +71,47 @@ function playRound(playerSelection, computerSelection) {
   else {
     if (computerSelection === "rock") {
       compWins = compWins + 1;
-      return "You Lose! " + computerSelection + " beats " + playerSelection;
+      roundOutput =
+        "You Lose! " + computerSelection + " beats " + playerSelection;
     } else {
       playerWins = playerWins + 1;
-      return "You Win! " + playerSelection + " beats " + computerSelection;
+      roundOutput =
+        "You Win! " + playerSelection + " beats " + computerSelection;
     }
   }
-  //} else {
-  //declareWinner();
-  //}
+
+  if (playerWins === 5 || compWins === 5) {
+    return declareWinner();
+  } else {
+    return roundOutput;
+  }
 }
 
-function showResults() {
-  const results = document.querySelector("#results");
-  const content = document.createElement("div");
-  const playerScore = document.createElement("div");
-  const computerScore = document.createElement("div");
-  const rndPlay = document.createElement("div");
+const results = document.querySelector("#results");
+const content = document.createElement("div");
+const playerScore = document.createElement("div");
+const computerScore = document.createElement("div");
+const rndPlay = document.createElement("div");
 
-  const buttons = document.querySelectorAll("button");
+const buttons = document.querySelectorAll("button");
 
-  buttons.forEach((button) => {
-    button.addEventListener(
-      "click",
-      () => {
-        roundsPlayed++;
+buttons.forEach((button) => {
+  button.addEventListener("click", () => {
+    roundsPlayed++;
 
-        content.textContent = playRound(button.id, getComputerChoice());
-        results.appendChild(content);
+    content.textContent = playRound(button.id, getComputerChoice());
+    results.appendChild(content);
 
-        playerScore.textContent = "Your round wins: " + playerWins;
-        results.appendChild(playerScore);
+    playerScore.textContent = "Your round wins: " + playerWins;
+    results.appendChild(playerScore);
 
-        computerScore.textContent = "Computer round wins: " + compWins;
-        results.appendChild(computerScore);
+    computerScore.textContent = "Computer round wins: " + compWins;
+    results.appendChild(computerScore);
 
-        rndPlay.textContent = "Rounds played: " + roundsPlayed;
-        results.appendChild(rndPlay);
-      },
-      { once: true }
-    );
+    rndPlay.textContent = "Rounds played: " + roundsPlayed;
+    results.appendChild(rndPlay);
   });
-}
+});
 
 function declareWinner() {
   const totalResult = document.createElement("div");
@@ -150,7 +155,5 @@ let compWins = 0;
 
 //Create counting variable named roundsPlayed to track number of rounds with inital value of 0
 let roundsPlayed = 0;
-
-showResults();
 
 //Print playerWins, compWins and winner of game
