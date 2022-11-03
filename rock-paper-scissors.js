@@ -81,7 +81,7 @@ function playRound(playerSelection, computerSelection) {
   }
 
   if (playerWins === 5 || compWins === 5) {
-    removeButtons(choose);
+    removeElements(choose);
     addResetButton();
     return declareWinner();
   } else {
@@ -89,7 +89,7 @@ function playRound(playerSelection, computerSelection) {
   }
 }
 
-function removeButtons(node) {
+function removeElements(node) {
   while (node.hasChildNodes()) {
     node.removeChild(node.firstChild);
   }
@@ -100,10 +100,12 @@ function addResetButton() {
   btn.innerHTML = "New Game";
   btn.id = "newGame";
   btn.onclick = function () {
-    removeButtons(choose);
+    removeElements(choose);
+    removeElements(results);
     addPlayerButtons("Rock");
     addPlayerButtons("Paper");
     addPlayerButtons("Scissors");
+    resetCounters();
   };
   choose.appendChild(btn);
 }
@@ -124,24 +126,27 @@ const rndPlay = document.createElement("div");
 
 const buttons = document.querySelectorAll("button");
 
-buttons.forEach((button) => {
-  button.addEventListener("click", () => {
-    roundsPlayed++;
+playGame();
 
-    content.textContent = playRound(button.id, getComputerChoice());
-    results.appendChild(content);
+function playGame() {
+  buttons.forEach((button) => {
+    button.addEventListener("click", () => {
+      roundsPlayed++;
 
-    playerScore.textContent = "Your round wins: " + playerWins;
-    results.appendChild(playerScore);
+      content.textContent = playRound(button.id, getComputerChoice());
+      results.appendChild(content);
 
-    computerScore.textContent = "Computer round wins: " + compWins;
-    results.appendChild(computerScore);
+      playerScore.textContent = "Your round wins: " + playerWins;
+      results.appendChild(playerScore);
 
-    rndPlay.textContent = "Rounds played: " + roundsPlayed;
-    results.appendChild(rndPlay);
+      computerScore.textContent = "Computer round wins: " + compWins;
+      results.appendChild(computerScore);
+
+      rndPlay.textContent = "Rounds played: " + roundsPlayed;
+      results.appendChild(rndPlay);
+    });
   });
-});
-
+}
 function declareWinner() {
   const totalResult = document.createElement("div");
 
