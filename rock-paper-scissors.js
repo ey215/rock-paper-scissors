@@ -82,9 +82,9 @@ function playRound(playerSelection, computerSelection) {
 
   if (playerWins === 5 || compWins === 5) {
     removeButtons(choose);
+    addResetButton();
     return declareWinner();
   } else {
-    addPlayerButtons();
     return roundOutput;
   }
 }
@@ -93,6 +93,13 @@ function removeButtons(node) {
   while (node.hasChildNodes()) {
     node.removeChild(node.firstChild);
   }
+}
+
+function addResetButton() {
+  let btn = document.createElement("button");
+  btn.innerHTML = "New Game";
+  btn.id = "newGame";
+  choose.appendChild(btn);
 }
 
 const results = document.querySelector("#results");
