@@ -81,9 +81,17 @@ function playRound(playerSelection, computerSelection) {
   }
 
   if (playerWins === 5 || compWins === 5) {
+    removeButtons(choose);
     return declareWinner();
   } else {
+    addPlayerButtons();
     return roundOutput;
+  }
+}
+
+function removeButtons(node) {
+  while (node.hasChildNodes()) {
+    node.removeChild(node.firstChild);
   }
 }
 
