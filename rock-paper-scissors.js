@@ -88,6 +88,7 @@ function playRound(playerSelection, computerSelection) {
 }
 
 const results = document.querySelector("#results");
+const choose = document.querySelector("#choose");
 const content = document.createElement("div");
 const playerScore = document.createElement("div");
 const computerScore = document.createElement("div");
