@@ -17,11 +17,11 @@ function getComputerChoice() {
   //Use if/else to set pick to either "Rock", "Paper", or "Scissors" based on int in num
 
   if (num === 0) {
-    pick = "rock";
+    pick = "Rock";
   } else if (num === 1) {
-    pick = "paper";
+    pick = "Paper";
   } else {
-    pick = "scissors";
+    pick = "Scissors";
   }
 
   return pick;
@@ -42,8 +42,8 @@ function playRound(playerSelection, computerSelection) {
   }
 
   //Results if playerSelection is rock and computerSelection is different
-  else if (playerSelection === "rock") {
-    if (computerSelection === "paper") {
+  else if (playerSelection === "Rock") {
+    if (computerSelection === "Paper") {
       compWins = compWins + 1;
       roundOutput =
         "You Lose! " + computerSelection + " beats " + playerSelection;
@@ -55,8 +55,8 @@ function playRound(playerSelection, computerSelection) {
   }
 
   //Resuts if playerSelectin is paper and computerSelectin is different
-  else if (playerSelection === "paper") {
-    if (computerSelection === "scissors") {
+  else if (playerSelection === "Paper") {
+    if (computerSelection === "Scissors") {
       compWins = compWins + 1;
       roundOutput =
         "You Lose! " + computerSelection + " beats " + playerSelection;
@@ -69,7 +69,7 @@ function playRound(playerSelection, computerSelection) {
 
   //Results if playerSelction is scissors
   else {
-    if (computerSelection === "rock") {
+    if (computerSelection === "Rock") {
       compWins = compWins + 1;
       roundOutput =
         "You Lose! " + computerSelection + " beats " + playerSelection;
@@ -99,6 +99,19 @@ function addResetButton() {
   let btn = document.createElement("button");
   btn.innerHTML = "New Game";
   btn.id = "newGame";
+  btn.onclick = function () {
+    removeButtons(choose);
+    addPlayerButtons("Rock");
+    addPlayerButtons("Paper");
+    addPlayerButtons("Scissors");
+  };
+  choose.appendChild(btn);
+}
+
+function addPlayerButtons(buttonId) {
+  let btn = document.createElement("button");
+  btn.innerHTML = buttonId;
+  btn.id = buttonId;
   choose.appendChild(btn);
 }
 
