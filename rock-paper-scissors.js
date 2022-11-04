@@ -120,7 +120,10 @@ function addPlayerButtons(buttonId, buttonText) {
 function setupStartGameClick() {
   const btn = document.querySelector("#startGame");
   btn.addEventListener("click", () => {
-    alert("Hello World");
+    resetCounters();
+    addPlayerButtons("Rock", "Rock");
+    addPlayerButtons("Paper", "Paper");
+    addPlayerButtons("Scissors", "Scissors");
   });
 }
 
