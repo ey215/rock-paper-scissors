@@ -128,25 +128,7 @@ const buttons = document.querySelectorAll("button");
 
 playGame();
 
-function playGame() {
-  buttons.forEach((button) => {
-    button.addEventListener("click", () => {
-      roundsPlayed++;
-
-      content.textContent = playRound(button.id, getComputerChoice());
-      results.appendChild(content);
-
-      playerScore.textContent = "Your round wins: " + playerWins;
-      results.appendChild(playerScore);
-
-      computerScore.textContent = "Computer round wins: " + compWins;
-      results.appendChild(computerScore);
-
-      rndPlay.textContent = "Rounds played: " + roundsPlayed;
-      results.appendChild(rndPlay);
-    });
-  });
-}
+function playGame() {}
 function declareWinner() {
   const totalResult = document.createElement("div");
 
