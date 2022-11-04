@@ -110,11 +110,18 @@ function addResetButton() {
   choose.appendChild(btn);
 }
 
-function addPlayerButtons(buttonId) {
+function addPlayerButtons(buttonId, buttonText) {
   let btn = document.createElement("button");
-  btn.innerHTML = buttonId;
+  btn.innerHTML = buttonText;
   btn.id = buttonId;
   choose.appendChild(btn);
+}
+
+function setupStartGameClick() {
+  const btn = document.querySelector("#startGame");
+  btn.addEventListener("click", () => {
+    alert("Hello World");
+  });
 }
 
 const results = document.querySelector("#results");
@@ -128,7 +135,10 @@ const buttons = document.querySelectorAll("button");
 
 playGame();
 
-function playGame() {}
+function playGame() {
+  addPlayerButtons("startGame", "Start Game");
+  setupStartGameClick();
+}
 function declareWinner() {
   const totalResult = document.createElement("div");
 
