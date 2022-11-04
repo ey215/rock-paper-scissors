@@ -102,10 +102,7 @@ function addResetButton() {
   btn.onclick = function () {
     removeElements(choose);
     removeElements(results);
-    addPlayerButtons("Rock");
-    addPlayerButtons("Paper");
-    addPlayerButtons("Scissors");
-    resetCounters();
+    playGame();
   };
   choose.appendChild(btn);
 }
