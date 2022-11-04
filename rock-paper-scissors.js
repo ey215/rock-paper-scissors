@@ -132,7 +132,19 @@ function setupStartGameClick() {
 function buttonPlayRound(btnid) {
   const btn = document.querySelector(btnid);
   btn.addEventListener("click", () => {
-    alert("Hello World");
+    roundsPlayed++;
+
+    content.textContent = playRound(btnid.slice(1), getComputerChoice());
+    results.appendChild(content);
+
+    playerScore.textContent = "Your round wins: " + playerWins;
+    results.appendChild(playerScore);
+
+    computerScore.textContent = "Computer round wins: " + compWins;
+    results.appendChild(computerScore);
+
+    rndPlay.textContent = "Rounds played: " + roundsPlayed;
+    results.appendChild(rndPlay);
   });
 }
 
