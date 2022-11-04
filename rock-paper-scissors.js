@@ -115,17 +115,31 @@ function addPlayerButtons(buttonId, buttonText) {
   btn.innerHTML = buttonText;
   btn.id = buttonId;
   choose.appendChild(btn);
+  buttonPlayRound("#" + buttonId);
 }
 
 function setupStartGameClick() {
   const btn = document.querySelector("#startGame");
   btn.addEventListener("click", () => {
     resetCounters();
+    removeElements(choose);
     addPlayerButtons("Rock", "Rock");
     addPlayerButtons("Paper", "Paper");
     addPlayerButtons("Scissors", "Scissors");
   });
 }
+
+function buttonPlayRound(btnid) {
+  const btn = document.querySelector(btnid);
+  btn.addEventListener("click", () => {
+    alert("Hello World");
+  });
+}
+
+let playerWins = 0;
+let compWins = 0;
+let roundsPlayed = 0;
+let keepGoing = true;
 
 const results = document.querySelector("#results");
 const choose = document.querySelector("#choose");
@@ -177,12 +191,9 @@ let playerSelection = "";
 //console.log(playRound(playerSelection, computerSelection));
 
 //Create counting variable named playerWins type integer for player wins with intial value of 0
-let playerWins = 0;
 
 //Create countign variable named compWins type integer for computer wins with inital value of 0
-let compWins = 0;
 
 //Create counting variable named roundsPlayed to track number of rounds with inital value of 0
-let roundsPlayed = 0;
 
 //Print playerWins, compWins and winner of game
