@@ -136,6 +136,13 @@ function buttonPlayRound(btnid) {
   });
 }
 
+function addStartButton(buttonId, buttonText) {
+  let btn = document.createElement("button");
+  btn.innerHTML = buttonText;
+  btn.id = buttonId;
+  choose.appendChild(btn);
+}
+
 let playerWins = 0;
 let compWins = 0;
 let roundsPlayed = 0;
@@ -153,7 +160,7 @@ const buttons = document.querySelectorAll("button");
 playGame();
 
 function playGame() {
-  addPlayerButtons("startGame", "Start Game");
+  addStartButton("startGame", "Start Game");
   setupStartGameClick();
 }
 function declareWinner() {
