@@ -149,6 +149,7 @@ function addStartButton(buttonId, buttonText) {
   let btn = document.createElement("button");
   btn.innerHTML = buttonText;
   btn.id = buttonId;
+  btn.classList = "inputButton";
   choose.appendChild(btn);
 }
 
