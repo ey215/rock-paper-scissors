@@ -3,6 +3,19 @@ body {
 }
 
 .header, .footer {
-    background-color: purple;
-    color: yellow;
+    background-color: rgb(136 11 136);
+    color: #e2e2c3;
+}
+
+.content {
+    display: flex;
+    margin: 24px;
+    flex-direction: column;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 41px;
 }
