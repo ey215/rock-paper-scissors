@@ -6,8 +6,7 @@ body {
 .header, .footer {
     background-color: rgb(255, 255, 255);
     color: rgb(94, 12, 94);
-    font-family: ;
-}
+    }
 
 .content {
     display: flex;
@@ -20,6 +19,8 @@ body {
     align-items: center;
     justify-content: center;
     font-size: 41px;
+    height: 256px;
+    font-size: 100px;
 }
 
 .inputButton {
