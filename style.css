@@ -38,7 +38,7 @@ body {
 
 .choose {
     display: flex;
-    width: 100%;
+    width: 95%;
     gap: 20px;
     justify-content: center;
     align-items: center;

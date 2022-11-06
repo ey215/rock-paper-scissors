@@ -104,6 +104,7 @@ function addResetButton() {
   let btn = document.createElement("button");
   btn.innerHTML = "New Game";
   btn.id = "newGame";
+  btn.classList = "inputButton";
   btn.onclick = function () {
     removeElements(choose);
     removeElements(results);
