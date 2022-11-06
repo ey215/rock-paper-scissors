@@ -48,6 +48,13 @@ body {
 
 .inputButton {
     background-color: #ffffff;
+    display: flex;
+    height: 128px;
+    width: 256px;
+    font-size: 40px;
+    align-items: center;
+    justify-content: center;
+    color: rgb(94, 12, 94)
 
 }
 
@@ -62,4 +69,5 @@ body {
     font-size: 35px;
     border-radius: 15px;
     flex-direction: column;
+    text-align: center;
 }
