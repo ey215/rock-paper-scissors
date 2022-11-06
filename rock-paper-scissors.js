@@ -109,7 +109,8 @@ function addResetButton() {
     removeElements(choose);
     removeElements(results);
 
-    content.textContent = "Click Start Game to play another game.";
+    content.textContent =
+      "First to 5 Wins! <br> Click Start Game to play another game.";
     results.appendChild(content);
     playGame();
   };
