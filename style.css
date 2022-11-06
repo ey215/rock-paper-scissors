@@ -1,10 +1,10 @@
 body {
-    background-color: #ffffff;
+    background-color: rgb(94, 12, 94);
 }
 
 .header, .footer {
-    background-color: rgb(136 11 136);
-    color: #e2e2c3;
+    background-color: rgb(255, 255, 255);
+    color: rgb(94, 12, 94);
 }
 
 .content {
@@ -18,4 +18,8 @@ body {
     align-items: center;
     justify-content: center;
     font-size: 41px;
+}
+
+.inputButton {
+    background-color: #ff9a9a;
 }
