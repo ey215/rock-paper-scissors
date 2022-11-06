@@ -95,6 +95,11 @@ function removeElements(node) {
   }
 }
 
+function beginMessage() {
+  content.textContent = "Click a button below to make your first selection.";
+  results.appendChild(content);
+}
+
 function addResetButton() {
   let btn = document.createElement("button");
   btn.innerHTML = "New Game";
@@ -102,6 +107,9 @@ function addResetButton() {
   btn.onclick = function () {
     removeElements(choose);
     removeElements(results);
+
+    content.textContent = "Click Start Game to play another game.";
+    results.appendChild(content);
     playGame();
   };
   choose.appendChild(btn);
@@ -120,6 +128,8 @@ function setupStartGameClick() {
   btn.addEventListener("click", () => {
     resetCounters();
     removeElements(choose);
+    removeElements(results);
+    beginMessage();
     addPlayerButtons("Rock", "Rock");
     addPlayerButtons("Paper", "Paper");
     addPlayerButtons("Scissors", "Scissors");
