@@ -1,130 +1,217 @@
-
 //Create function getRandomInt to return integer
 function getRandomInt(max) {
-    return Math.floor(Math.random() * max);
+  return Math.floor(Math.random() * max);
 }
 
 //Create function getComputerChoice that returns either "Rock", "Paper", or "Scissors"
 function getComputerChoice() {
-    //Create variable num wity type integer and intial value of 0
-    let num = 0;
-    //Create variable pick type string and intitial value of ""
-    let pick = "";
-    
-    //Set num to result of getRandomInt with argument of 3
+  //Create variable num wity type integer and intial value of 0
+  let num = 0;
+  //Create variable pick type string and intitial value of ""
+  let pick = "";
 
-    num = getRandomInt(3);
+  //Set num to result of getRandomInt with argument of 3
 
-    //Use if/else to set pick to either "Rock", "Paper", or "Scissors" based on int in num 
+  num = getRandomInt(3);
 
-    if (num === 0) {
-        pick = "rock";        
-    }
+  //Use if/else to set pick to either "Rock", "Paper", or "Scissors" based on int in num
 
-    else if (num === 1) {
-        pick = "paper";
-    }
+  if (num === 0) {
+    pick = "Rock";
+  } else if (num === 1) {
+    pick = "Paper";
+  } else {
+    pick = "Scissors";
+  }
 
-    else {
-        pick = "scissors";
-    }
-
-    return pick;
+  return pick;
 }
 
 //Add a function playRound that compares playerSelection to computerSelection and decides winner
 
 function playRound(playerSelection, computerSelection) {
+  //If statement to see if playerSelection and computerSelectin are
+  //equal and return a draw string
+  //if (playerWins != 5 && compWins != 5) {
 
+  let roundOutput = "";
 
-    //make playerSelection lower case
-    playerSelection = playerSelection.toLowerCase();
-    
-    //If statement to see if playerSelection and computerSelectin are 
-    //equal and return a draw string
-       
-    if (playerSelection === computerSelection) {
-        return "Both players selected " + playerSelection + ", no winner this round."; 
+  if (playerSelection === computerSelection) {
+    roundOutput =
+      "Both players selected " + playerSelection + ", no winner this round.";
+  }
+
+  //Results if playerSelection is rock and computerSelection is different
+  else if (playerSelection === "Rock") {
+    if (computerSelection === "Paper") {
+      compWins = compWins + 1;
+      roundOutput =
+        "You Lose! " + computerSelection + " beats " + playerSelection;
+    } else {
+      playerWins = playerWins + 1;
+      roundOutput =
+        "You Win! " + playerSelection + " beats " + computerSelection;
     }
-    
-    //Results if playerSelection is rock and computerSelection is different
-    else if (playerSelection === "rock") {
-        if (computerSelection === "paper") {
-            compWins = compWins + 1; 
-            return "You Lose! " + computerSelection + " beats " + playerSelection;
-        }
-        else {
-            playerWins = playerWins + 1;
-            return "You Win! " + playerSelection + " beats " + computerSelection;
-        }
+  }
+
+  //Resuts if playerSelectin is paper and computerSelectin is different
+  else if (playerSelection === "Paper") {
+    if (computerSelection === "Scissors") {
+      compWins = compWins + 1;
+      roundOutput =
+        "You Lose! " + computerSelection + " beats " + playerSelection;
+    } else {
+      playerWins = playerWins + 1;
+      roundOutput =
+        "You Win! " + playerSelection + " beats " + computerSelection;
     }
+  }
 
-    //Resuts if playerSelectin is paper and computerSelectin is different
-    
-    else if (playerSelection === "paper") {
-        if (computerSelection === "scissors") {
-            compWins = compWins + 1;
-            return "You Lose! " + computerSelection + " beats " + playerSelection;
-
-        }
-
-        else {
-            playerWins = playerWins + 1;
-            return "You Win! " + playerSelection + " beats " + computerSelection;
-        }
+  //Results if playerSelction is scissors
+  else {
+    if (computerSelection === "Rock") {
+      compWins = compWins + 1;
+      roundOutput =
+        "You Lose! " + computerSelection + " beats " + playerSelection;
+    } else {
+      playerWins = playerWins + 1;
+      roundOutput =
+        "You Win! " + playerSelection + " beats " + computerSelection;
     }
+  }
 
-    //Results if playerSelction is scissors
-    else {
-        if (computerSelection === "rock") {
-            compWins = compWins + 1;
-            return "You Lose! " + computerSelection + " beats " + playerSelection; 
-        }
-
-        else {
-            playerWins = playerWins + 1;
-            return "You Win! " + playerSelection + " beats " + computerSelection;
-        }
-    }
+  if (playerWins === 5 || compWins === 5) {
+    removeElements(choose);
+    addResetButton();
+    return declareWinner();
+  } else {
+    return roundOutput;
+  }
 }
 
-//Create function game() which plays the game for 5 rounds and returns the result of each round and the winner
-function game() {
-    
-    //Create variable type boolean keepGoing to crontrol loop with intital value of true
-    let keepGoing = true;
-
-    //Create While loop with controling variable keepGoing.  When keepGoing = false loop terminates.
-
-    while (keepGoing === true) {
-        roundsPlayed = roundsPlayed + 1;
-        if (roundsPlayed >= 6) {
-            keepGoing = false;
-        }
-        else {
-            playerSelection = playerPrompt();
-            console.log("Round " + roundsPlayed + ": " + playRound(playerSelection, getComputerChoice()));
-        }
-    }
-    //Call playRound() to play a round
-    //Use if/else statement to determine which counting variable to increment by 1 and increment roundsPlayed by 1
-    //Print "Round n" + win/loss statement to console
-    //When round <= 6 set keepGoing to false
-    //Reset variables to initial values
-    
-
+function removeElements(node) {
+  while (node.hasChildNodes()) {
+    node.removeChild(node.firstChild);
+  }
 }
 
-//Function to prompt for player entry
-function playerPrompt() {
-    let playerEntry = "";
-    playerEntry = prompt(" Round " + roundsPlayed + ": Rock, Paper, or Scissors?");
-    return playerEntry;
-    
+function beginMessage() {
+  content.textContent = "Click a button below to make your first selection.";
+  results.appendChild(content);
 }
- 
-//Prompt user for input selection or Rock, Paper, or Scissors
-let playerSelction = "";
+
+function addResetButton() {
+  let btn = document.createElement("button");
+  btn.innerHTML = "New Game";
+  btn.id = "newGame";
+  btn.onclick = function () {
+    removeElements(choose);
+    removeElements(results);
+
+    content.textContent = "Click Start Game to play another game.";
+    results.appendChild(content);
+    playGame();
+  };
+  choose.appendChild(btn);
+}
+
+function addPlayerButtons(buttonId, buttonText) {
+  let btn = document.createElement("button");
+  btn.innerHTML = buttonText;
+  btn.id = buttonId;
+  btn.classList = "inputButton";
+  choose.appendChild(btn);
+  buttonPlayRound("#" + buttonId);
+}
+
+function setupStartGameClick() {
+  const btn = document.querySelector("#startGame");
+  btn.addEventListener("click", () => {
+    resetCounters();
+    removeElements(choose);
+    removeElements(results);
+    beginMessage();
+    addPlayerButtons("Rock", "Rock");
+    addPlayerButtons("Paper", "Paper");
+    addPlayerButtons("Scissors", "Scissors");
+  });
+}
+
+function buttonPlayRound(btnid) {
+  const btn = document.querySelector(btnid);
+  btn.addEventListener("click", () => {
+    roundsPlayed++;
+
+    content.textContent = playRound(btnid.slice(1), getComputerChoice());
+    results.appendChild(content);
+
+    playerScore.textContent = "Your round wins: " + playerWins;
+    results.appendChild(playerScore);
+
+    computerScore.textContent = "Computer round wins: " + compWins;
+    results.appendChild(computerScore);
+
+    rndPlay.textContent = "Rounds played: " + roundsPlayed;
+    results.appendChild(rndPlay);
+  });
+}
+
+function addStartButton(buttonId, buttonText) {
+  let btn = document.createElement("button");
+  btn.innerHTML = buttonText;
+  btn.id = buttonId;
+  btn.classList = "inputButton";
+  choose.appendChild(btn);
+}
+
+let playerWins = 0;
+let compWins = 0;
+let roundsPlayed = 0;
+let keepGoing = true;
+
+const results = document.querySelector("#results");
+const choose = document.querySelector("#choose");
+const content = document.createElement("div");
+const playerScore = document.createElement("div");
+const computerScore = document.createElement("div");
+const rndPlay = document.createElement("div");
+
+const buttons = document.querySelectorAll("button");
+
+playGame();
+
+function playGame() {
+  addStartButton("startGame", "Start Game");
+  setupStartGameClick();
+}
+function declareWinner() {
+  const totalResult = document.createElement("div");
+
+  if (playerWins > compWins) {
+    totalResult.textContent =
+      "You Win! You won " +
+      playerWins +
+      " rounds and the Computer won " +
+      compWins +
+      " rounds.";
+  } else {
+    totalResult.textContent =
+      "You Lose! You won " +
+      playerWins +
+      " rounds and the Computer won " +
+      compWins +
+      " rounds.";
+  }
+  results.appendChild(totalResult);
+}
+
+function resetCounters() {
+  compWins = 0;
+  playerWins = 0;
+  roundsPlayed = 0;
+}
+
+let playerSelection = "";
 //playerSelection = prompt();
 
 //console.log(playerSelection);
@@ -132,24 +219,9 @@ let playerSelction = "";
 //console.log(playRound(playerSelection, computerSelection));
 
 //Create counting variable named playerWins type integer for player wins with intial value of 0
-let playerWins = 0;
-    
-//Create countign variable named compWins type integer for computer wins with inital value of 0
-let compWins = 0;
-    
-//Create counting variable named roundsPlayed to track number of rounds with inital value of 0
-let roundsPlayed = 0;
 
-game();
+//Create countign variable named compWins type integer for computer wins with inital value of 0
+
+//Create counting variable named roundsPlayed to track number of rounds with inital value of 0
 
 //Print playerWins, compWins and winner of game
-
-if (playerWins === compWins) {
-    console.log("You Tie! You both won " + playerWins + " games!");
-}
-else if (playerWins > compWins) {
-    console.log("You Win! You won " + playerWins + " rounds and the Computer won " + compWins + " rounds.");
-}
-else {
-    console.log("You Lose! You won " + playerWins + " rounds and the Computer won " + compWins + " rounds.");
-}
